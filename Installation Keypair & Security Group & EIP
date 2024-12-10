@@ -1,3 +1,14 @@
+resource "aws_instance" "cloud" {
+  ami           = "ami-0c80e2b6ccb9ad6d1" # MY-AMI
+  instance_type = "t2.micro"
+  key_name      = "cloudindia"
+  vpc_security_group_ids = [aws_security_group.cloudsg.id]
+
+tags = {
+ Name = "cloudindia"
+ }
+}
+
 resource "aws_key_pair" "cloud" {         (Key-pair)
   key_name   = "cloudindia"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDO44tk7hufJlxRIGsS0tMrQPCrVsJC3F+ElXWSe9nDkytyd1QFyt6Q0I74/RV1ItAL5stP9tFFwU6iedXCTGbLaZkf3SnTIUKgZ8TEIdw5visIAthBUjaLSuUpChhdIpscCP9ZNC7yBgK9lAz+6jyt+/kbRwruREzzSQJAA8xfrSBAbLCa/+4d3yuwgEemmZ8gkksfaKHPW/DGeJ1TroUy3arsZc9OGGn7ZcUI+nOLyHdJEwmZLa125Q3xzQZI6GeTiLAj9M1vY5ajZ4JpaEdgqrIKDasjqYneldH/Z7T8keFEsLFNZc23qkOLFDbVOa5wW7mc2Gmg5ohWG7IiVZaD root@ip-172-31-12-93.us-east-2.compute.internal"
