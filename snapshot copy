@@ -1,0 +1,8 @@
+resource "aws_ebs_snapshot_copy" "example_copy" {
+  source_snapshot_id = "snap-04524a9eb978803bb"
+  source_region      = "us-east-2"
+
+  tags = {
+    Name = "Cloud_copy_snap"
+  }
+}
