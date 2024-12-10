@@ -1,0 +1,15 @@
+provider "aws" {
+  region     = "us-west-1"                           ( change by other region)
+  access_key = "AKIAQFC27LOW2NEQAXA7"
+  secret_key = "Zz+d/yeCyT1IkyOLVAeLrbu8Dk2t3+BrgECQMCPj"
+}
+
+resource "aws_ami_copy" "example" {
+  name              = "terraform-example-copy"
+  source_ami_id     = "ami-059ff7164bb8f6a52"
+  source_ami_region = "us-east-2"             (changes by aws source region)
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
