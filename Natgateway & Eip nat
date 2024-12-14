@@ -1,0 +1,12 @@
+resource "aws_eip" "cloud-natip" {
+  domain   = "vpc"
+}
+
+resource "aws_nat_gateway" "cloud-nat" {
+  allocation_id = aws_eip.cloud-natip.id
+  subnet_id     = aws_subnet.public-subnet.id
+
+  tags = {
+    Name = "cloud-nat"
+  }
+}
