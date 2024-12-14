@@ -1,0 +1,8 @@
+resource "aws_internet_gateway" "cloud-igw" {
+  vpc_id = aws_vpc.cloudvpc.id
+
+  tags = {
+    Name = "cloud-igw"
+  }
+}
+
