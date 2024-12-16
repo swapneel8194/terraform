@@ -1,0 +1,4 @@
+terraform force-unlock <LOCK_ID>
+terraform plan -lock=false
+terraform apply -lock=false
+TF_LOG=DEBUG terraform plan
